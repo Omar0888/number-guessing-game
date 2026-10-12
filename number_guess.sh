@@ -13,6 +13,12 @@ do
   read -r GUESS
   ((GUESS_COUNT++))
 
+ if [[ ! $GUESS =~ ^[0-9]+$ ]]
+  then
+    echo "That is not an integer, guess again:"
+    continue
+  fi
+  
   if [[ $GUESS -gt $SECRET_NUMBER ]]
   then
     echo "It's lower than that, guess again:"
